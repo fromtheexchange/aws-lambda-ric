@@ -13,7 +13,7 @@ jobs:
       fail-fast: true
       matrix:
         year: ["2022"]
-        nodejs: [""]
+        nodejs: ["16"]
         python: ["3.6", "3.7", "3.8", "3.9"]
     runs-on: ubuntu-latest
     steps:
