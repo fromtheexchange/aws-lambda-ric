@@ -9,14 +9,14 @@ RUN yum install -y \
   "python$PYTHON" python3-pip python3-setuptools \
   g++ make cmake unzip tar gzip autoconf automake libtool \
   && npm install --global aws-lambda-ric \
-  && pip install awslambdaric \
+  && "python$PYTHON" -m ensurepip --upgrade && "pip$PYTHON" install awslambdaric \
   && touch /.aws-lambda-ric.versions \
   && echo "nodejs=\"$(node --version | cut -c 2-)\"" >> /.aws-lambda-ric.versions \
   && echo "npm=\"$(npm --version)\"" >> /.aws-lambda-ric.versions \
   && echo "aws-lambda-nodejs-runtime-interface-client=\"$(npm show aws-lambda-ric version)\"" >> /.aws-lambda-ric.versions \
-  && echo "python3=\"$(python3 -c "import platform; print(platform.python_version())")\"" >> /.aws-lambda-ric.versions \
-  && echo "pip3=\"$(python3 -c "import pip; print(pip.__version__)")\"" >> /.aws-lambda-ric.versions \
-  && echo "aws-lambda-python-runtime-interface-client=\"$(python3 -c "import awslambdaric; print(awslambdaric.__version__)")\"" >> /.aws-lambda-ric.versions \
+  && echo "python3=\"$("python$PYTHON" -c "import platform; print(platform.python_version())")\"" >> /.aws-lambda-ric.versions \
+  && echo "pip3=\"$("python$PYTHON" -c "import pip; print(pip.__version__)")\"" >> /.aws-lambda-ric.versions \
+  && echo "aws-lambda-python-runtime-interface-client=\"$("python$PYTHON" -c "import awslambdaric; print(awslambdaric.__version__)")\"" >> /.aws-lambda-ric.versions \
   && yum remove -y \
   "nodejs$NODEJS" npm \
   python3-pip python3-setuptools \
