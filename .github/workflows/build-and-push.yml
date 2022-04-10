@@ -50,12 +50,12 @@ jobs:
           push: true
           # multiple tags https://github.com/docker/build-push-action#customizing
           # ternary https://github.com/actions/runner/issues/409#issuecomment-752775072
+          # latest automatically applied https://stackoverflow.com/questions/22080706/how-to-create-named-and-latest-tag-in-docker#comment85790276_36398336
           tags: |
             fromtheexchange/aws-lambda-ric:${{ matrix.year }}-nodejs${{ matrix.nodejs }}-python${{ matrix.python }}
             fromtheexchange/aws-lambda-ric:${{ matrix.year }}-nodejs${{ matrix.nodejs }}
             fromtheexchange/aws-lambda-ric:${{ matrix.year }}-python${{ matrix.python }}
             fromtheexchange/aws-lambda-ric:${{ matrix.year }}
-            fromtheexchange/aws-lambda-ric
             fromtheexchange/aws-lambda-ric:nodejs${{ matrix.nodejs }}
             fromtheexchange/aws-lambda-ric:python${{ matrix.python }}
             fromtheexchange/aws-lambda-ric:${{ matrix.year }}-nodejs${{ matrix.nodejs }}-python${{ matrix.python }}-${{ steps.time.outputs.time }}
