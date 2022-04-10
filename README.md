@@ -5,7 +5,7 @@ This docker container contains these packages compiled on [`amazonlinux:2022`](h
 - [`aws-lambda-nodejs-runtime-interface-client`](https://github.com/aws/aws-lambda-nodejs-runtime-interface-client)
 - [`aws-lambda-python-runtime-interface-client`](https://github.com/aws/aws-lambda-python-runtime-interface-client)
 
-Versions can be found in `/.aws-lambda-ric.versions`
+Versions can be found in `/.aws-lambda-ric.versions`.
 
 ## NodeJS
 

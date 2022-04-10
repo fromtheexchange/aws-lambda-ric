@@ -6,7 +6,7 @@ FROM amazonlinux:${YEAR}
 
 RUN yum install -y \
   "nodejs$NODEJS" npm \
-  "python3$PYTHON" python3-pip python3-setuptools \
+  "python$PYTHON" python3-pip python3-setuptools \
   g++ make cmake unzip tar gzip autoconf automake libtool \
   && npm install --global aws-lambda-ric \
   && pip install awslambdaric \
