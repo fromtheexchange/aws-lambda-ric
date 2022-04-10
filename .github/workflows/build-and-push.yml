@@ -65,12 +65,12 @@ jobs:
             fromtheexchange/aws-lambda-ric:${{ steps.time.outputs.time }}
             fromtheexchange/aws-lambda-ric:nodejs${{ matrix.nodejs }}-${{ steps.time.outputs.time }}
             fromtheexchange/aws-lambda-ric:python${{ matrix.python }}-${{ steps.time.outputs.time }}
-            ${{ matrix.year == '2022' && matrix.nodejs == '' && matrix.python == '3.9' && 'fromtheexchange/aws-lambda-ric:${{ matrix.year }}-nodejs${{ matrix.nodejs }}-python${{ matrix.python }}-latest' || 'fromtheexchange/aws-lambda-ric'}}
-            ${{ matrix.year == '2022' && matrix.nodejs == '' && matrix.python == '3.9' && 'fromtheexchange/aws-lambda-ric:${{ matrix.year }}-nodejs${{ matrix.nodejs }}-latest' || 'fromtheexchange/aws-lambda-ric'}}
-            ${{ matrix.year == '2022' && matrix.nodejs == '' && matrix.python == '3.9' && 'fromtheexchange/aws-lambda-ric:${{ matrix.year }}-python${{ matrix.python }}-latest' || 'fromtheexchange/aws-lambda-ric'}}
-            ${{ matrix.year == '2022' && matrix.nodejs == '' && matrix.python == '3.9' && 'fromtheexchange/aws-lambda-ric:${{ matrix.year }}-latest' || 'fromtheexchange/aws-lambda-ric'}}
-            ${{ matrix.year == '2022' && matrix.nodejs == '' && matrix.python == '3.9' && 'fromtheexchange/aws-lambda-ric:nodejs${{ matrix.nodejs }}-latest' || 'fromtheexchange/aws-lambda-ric'}}
-            ${{ matrix.year == '2022' && matrix.nodejs == '' && matrix.python == '3.9' && 'fromtheexchange/aws-lambda-ric:python${{ matrix.python }}-latest' || 'fromtheexchange/aws-lambda-ric'}}
+            ${{ matrix.year == '2022' && matrix.nodejs == '' && matrix.python == '3.9' && format('fromtheexchange/aws-lambda-ric:{0}-nodejs{1}-python{2}-latest', matrix.year, matrix.nodejs, matrix.python) || ''}}
+            ${{ matrix.year == '2022' && matrix.nodejs == '' && matrix.python == '3.9' && format('fromtheexchange/aws-lambda-ric:{0}-nodejs{1}-latest', matrix.year, matrix.nodejs) || ''}}
+            ${{ matrix.year == '2022' && matrix.nodejs == '' && matrix.python == '3.9' && format('fromtheexchange/aws-lambda-ric:{0}-python{1}-latest', matrix.year, matrix.python) || ''}}
+            ${{ matrix.year == '2022' && matrix.nodejs == '' && matrix.python == '3.9' && format('fromtheexchange/aws-lambda-ric:{0}-latest', matrix.year) || ''}}
+            ${{ matrix.year == '2022' && matrix.nodejs == '' && matrix.python == '3.9' && format('fromtheexchange/aws-lambda-ric:nodejs{0}-latest', matrix.nodejs) || ''}}
+            ${{ matrix.year == '2022' && matrix.nodejs == '' && matrix.python == '3.9' && format('fromtheexchange/aws-lambda-ric:python{0}-latest', matrix.python) || ''}}
             ${{ matrix.year == '2022' && matrix.nodejs == '' && matrix.python == '3.9' && 'fromtheexchange/aws-lambda-ric:latest' || ''}}
 
           build-args: |
