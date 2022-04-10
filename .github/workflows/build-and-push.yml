@@ -72,7 +72,8 @@ jobs:
             ${{ matrix.year == '2022' && matrix.nodejs == '' && matrix.python == '3.9' && format('fromtheexchange/aws-lambda-ric:python{0}-latest', matrix.python) || ''}}
             ${{ matrix.year == '2022' && matrix.nodejs == '' && matrix.python == '3.9' && 'fromtheexchange/aws-lambda-ric:latest' || ''}}
 
+          # FUTURE: temporarily disable, as amazonlinux:2022 only supports nodejs, without versions
+          # NODEJS=${{ matrix.nodejs }}
           build-args: |
             YEAR=${{ matrix.year }}
-            NODEJS=${{ matrix.nodejs }}
             PYTHON=${{ matrix.python }}
