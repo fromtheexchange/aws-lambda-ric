@@ -5,7 +5,7 @@ This docker container contains these packages compiled on [`amazonlinux:2022`](h
 - [`aws-lambda-nodejs-runtime-interface-client`](https://github.com/aws/aws-lambda-nodejs-runtime-interface-client)
 - [`aws-lambda-python-runtime-interface-client`](https://github.com/aws/aws-lambda-python-runtime-interface-client)
 
-Versions can be found in `/.aws-lambda-ric.versions`.
+Versions can be found in `/.aws-lambda-ric.versions`
 
 ## NodeJS
 
@@ -30,7 +30,7 @@ FROM fromtheexchange/aws-lambda-ric
 
 FROM amazonlinux:2022
 RUN yum install -y python3 python3-pip python3-setuptools
-COPY --from=fromtheexchange/aws-lambda-ric /usr/local/lib64/python3.9/site-packages/awslambdaric* /usr/local/lib64/python3.9/site-packages/
+COPY --from=fromtheexchange/aws-lambda-ric /usr/local/lib64/python3.9/site-packages/awslambdaric*/ /usr/local/lib64/python3.9/site-packages/
 ```
 
 Please note that this package installs and builds `python3 python3-pip python3-setuptools` daily, so the `python3 --version` and associated paths will change over time.
