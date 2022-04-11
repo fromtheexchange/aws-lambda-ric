@@ -5,7 +5,7 @@ on:
       - "*"
   schedule:
     # rebuild every day for security
-    - cron:  '0 0 * * *'
+    - cron:  '0 20 * * *'
 
 jobs:
   build-and-push:
@@ -75,7 +75,9 @@ jobs:
     steps:
     - uses: actions/checkout@v3
 
-    - uses: meeDamian/sync-readme@v1.0.6
+    - uses: ms-jpq/sync-dockerhub-readme@v1
       with:
-        pass: ${{ secrets.DOCKER_PERSONAL_ACCESS_TOKEN }}
-        description: true
+        username: ${{ secrets.DOCKER_USERNAME }}
+        password: ${{ secrets.DOCKER_PERSONAL_ACCESS_TOKEN }}
+        repository: fromtheexchange/aws-lambda-ric
+        readme: "./README.md"
